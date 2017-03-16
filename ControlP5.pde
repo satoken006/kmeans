@@ -2,7 +2,6 @@ void addCP5UI(){
   cp5 = new ControlP5(this);
   createCP5Button(cp5,   "STEP", FIELD_W + MARGIN,       MARGIN);
   createCP5Button(cp5, "UPDATE", FIELD_W + MARGIN, 100 + MARGIN);
-  //createCP5Textfield(cp5, "NUM_NODE", );
 }
 
 Button createCP5Button(ControlP5 controlP5, String label, int x, int y){

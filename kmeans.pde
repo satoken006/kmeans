@@ -15,13 +15,7 @@ void setup(){
   colorMode(HSB, 360, 100, 100);
   
   node = new Node[100];
-  //String[] row = loadStrings("location.csv");
-  //println(row.length);
   for(int i = 0 ; i < node.length ; i ++){
-    //String[] data = row[i].split(",");
-    //float location_x = float(data[0]);
-    //float location_y = float(data[1]);
-    //node[i] = new Node(location_x, location_y);
     node[i] = new Node(random(FIELD_W), random(FIELD_H));
   }
   
@@ -30,9 +24,7 @@ void setup(){
     cluster[i] = new Cluster(random(FIELD_W/4, FIELD_W*3/4), random(FIELD_H/4, FIELD_H*3/4), color(360 * float(i)/cluster.length, 100, 100));
   }
   assignNodes();
-  
   addCP5UI();
-  //println(ControlP5Constants.CENTER);
 }
 
 void draw(){
@@ -49,7 +41,7 @@ void draw(){
   }
 }
 
-// ****** ノードの所属を更新 ******
+// update which gravity point each node belongs to
 void assignNodes(){
   for(int j = 0 ; j < node.length ; j ++){
     for(int i = 0 ; i < cluster.length ; i ++){
@@ -69,7 +61,7 @@ void assignNodes(){
   }
 }
 
-// ****** 重心の位置を更新 ******
+// update locations of gravity points
 void setBarycenters(){
   PVector[] v = new PVector[cluster.length];
   for(int i = 0 ; i < v.length ; i ++){
